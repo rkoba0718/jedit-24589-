@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+
+<!-- this grammar will validate any well formed XML document.
+	 $Id: any.rng 16641 2009-12-14 21:08:21Z kerik-sf $
+  -->
+<grammar  xmlns="http://relaxng.org/ns/structure/1.0">
+
+<define name="any">
+    <zeroOrMore>
+      <choice>
+        <attribute>
+          <anyName/>
+          <text/>
+        </attribute>
+        <element>
+          <anyName/>
+          <ref name="any"/>
+        </element>
+        <text/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+<start>
+	<ref name="any"/>
+</start>
+
+</grammar>
